@@ -3,7 +3,7 @@ import cv2
 import numpy as np
 
 def onChange(pos):
-	global src
+    global src
 	bsize = pos
 	if bsize % 2 == 0:
 		bsize = bsize - 1
@@ -20,7 +20,7 @@ if src is None:
 	sys.exit()
 
 # Global-Binarization
-gb_img = cv2.threshold(src, 0, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
+_, gb_img = cv2.threshold(src, 0, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
 
 # Local-Binarization
 lb_img = np.zeros(src.shape, np.uint8)
