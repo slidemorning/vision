@@ -7,8 +7,8 @@ IMAGE_PATH = os.getcwd() + '/image'
 
 def main():
 	
-	image = cv2.imread(IMAGE_PATH + '/circuit.bmp', cv2.IMREAD_GRAYSCALE)
-	templ = cv2.imread(IMAGE_PATH + '/crystal.bmp', cv2.IMREAD_GRAYSCALE)
+	image = cv2.imread(IMAGE_PATH + '/messi.png', cv2.IMREAD_GRAYSCALE)
+	templ = cv2.imread(IMAGE_PATH + '/messi-face.png', cv2.IMREAD_GRAYSCALE)
 	
 	if	image is None or templ is None:
 		print('Fail to read image')
