@@ -22,17 +22,20 @@ def main():
 	# Match
 	res = cv2.matchTemplate(image, templ, cv2.TM_CCOEFF_NORMED)
 
-	#
+	# To visualize res image ([-1, 1] -> [0, 255] min-max normalize)
 	res_normed = cv2.normalize(res, None, 0, 255, cv2.NORM_MINMAX, cv2.CV_8U)
 
+	# Get location
 	_, maxval, _, maxloc = cv2.minMaxLoc(res)
 	print('maxval:', maxval)
 	print('maxloc', maxloc)
 
+	# Draw rectangle 
 	th, tw = templ.shape[:2]
 	dst = cv2.cvtColor(image, cv2.COLOR_GRAY2BGR)
 	cv2.rectangle(dst, maxloc, (maxloc[0] + tw, maxloc[1] + th), (0, 0, 255), 2)
 
+	# Show image
 	cv2.imshow('dst', dst)
 	cv2.imshow('res_normed', res_normed)
 	cv2.imshow('templ', templ)
