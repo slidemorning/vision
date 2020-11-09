@@ -70,11 +70,16 @@ if __name__ == '__main__':
 
         img = preprocess(img)
 
+        tm = cv2.TickMeter()
+        tm.start()
         pred = model.predict(img)
-        
+        tm.stop()
+
         for n, idx in enumerate(range(10)):
             msg = '{} : {}'.format(n, np.round(pred[:, idx]*100, 4))
             print(msg)
+
+        print('Inference Time : {}ms'.format(round(tm.getAvgTimeMilli(), 4)))
 
         cv2.imshow('input_img', input_img)
 

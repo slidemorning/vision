@@ -40,7 +40,7 @@ while True:
         cv2.putText(frame, str(ms)+'ms', (x, y), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0))
         msg = '====> detect face{}x{} time:{}'.format(w, h, ms)
         print(msg)
-
+	
     cv2.imshow('frame', frame)
     
 	# ESC
